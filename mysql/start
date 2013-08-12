@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "    $1" >> /haproxy/haproxy.cfg
+echo "    $2" >> /haproxy/haproxy.cfg
+
+cat /haproxy/haproxy.cfg
+
+haproxy -db -f /haproxy/haproxy.cfg
