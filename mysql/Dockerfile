@@ -11,11 +11,10 @@ RUN apt-get update
 
 RUN apt-get -y install haproxy
 
-ADD haproxy.cfg /haproxy/haproxy.cfg
-
 ADD start /haproxy/start
 RUN chmod 700 /haproxy/start
 
 # Start haproxy
-CMD ["/haproxy/start"]
+ENTRYPOINT ["/haproxy/start"]
+CMD ["192.168.55.55:3306,192.168.55.55:3306"]
 
