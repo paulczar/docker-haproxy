@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-IFS=","
-
 ServerArray=${SERVERS:=$1}
 
 
@@ -29,10 +26,12 @@ listen MySQL 0.0.0.0:3306
     option mysql-check user haproxy
 EOF
 
+IFS=","
 COUNT=1
 for i in ${ServerArray[@]}
 do
   echo "   " server SERVER_$COUNT $i >> /haproxy/haproxy.cfg
+  let "COUNT += 1"
 done
 
 cat /haproxy/haproxy.cfg

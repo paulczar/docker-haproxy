@@ -15,6 +15,5 @@ ADD start /haproxy/start
 RUN chmod 700 /haproxy/start
 
 # Start haproxy
-ENTRYPOINT ["/haproxy/start"]
-CMD ["192.168.55.55:3306,192.168.55.55:3306"]
+CMD ["/haproxy/start", "192.168.55.55:3306,192.168.55.55:3306"]
 
